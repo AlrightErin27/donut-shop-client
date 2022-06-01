@@ -20,11 +20,11 @@ a donut you have made. You can search by type of donut.
 
 ## Wire Frames
 
-![wireframes](/readme_imgs/wireframe.jpg)
+![wireframes](/imgs/wireframe.jpg)
 
 ## Schema
 
-![schema](/readme_imgs/sch.png)
+![schema](/imgs/sch.png)
 
 ## Stretch Goals
 
