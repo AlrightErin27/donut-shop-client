@@ -1,12 +1,28 @@
 import React from "react";
+
 import DonutCard from "./DonutCard";
 
 function DonutCards({ donuts }) {
-  // const tempDonutsArr = ["", "", "", "", "", "", "", "", "", ""];
   const renderDonuts = donuts.map((donut, key) => {
-    return <DonutCard donut={donut} key={key} />;
+    return (
+      <DonutCard
+        donut={donut}
+        key={key}
+        donuts={donuts}
+        handleDelete={handleDelete}
+      />
+    );
   });
-
+  function handleDelete(donut) {
+    fetch(`http://localhost:9292/donuts/${donut.name}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((r) => r.json())
+      .catch((err) => console.log("🔥", err));
+  }
   return <div className="render-donuts">{renderDonuts}</div>;
 }
 

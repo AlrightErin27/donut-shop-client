@@ -1,7 +1,9 @@
 import React from "react";
-import donut from "../pics/donut.png";
+import { useHistory } from "react-router-dom";
 
-function DonutCard({ donut }) {
+function DonutCard({ donut, handleDelete }) {
+  const history = useHistory();
+
   function showReviews() {
     console.log("Shows reviews.");
   }
@@ -9,7 +11,10 @@ function DonutCard({ donut }) {
     console.log("Add a review.");
   }
   function deleteDonut() {
-    console.log("Delete this donut.");
+    console.log("You are deleting:", donut.name);
+    handleDelete(donut);
+    history.push("/shop");
+    document.location.reload();
   }
 
   return (
