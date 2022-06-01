@@ -116,6 +116,7 @@ body {
   max-height: 50%;
 }
 #form-container {
+  font-size: 1.5rem;
 }
 .creator-form {
   display: flex;
@@ -124,4 +125,26 @@ body {
 }
 .form-item {
   margin: 2rem;
+}
+.creator-input {
+  font-size: 1.5rem;
+  border: none;
+}
+.creator-submit {
+  font-size: 1.5rem;
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.602);
+  border: 1px solid #d5d9d9;
+  height: 31px;
+  padding: 0 11px;
+  display: flex;
+  align-items: center;
+  font-family: "BIZ UDMincho", serif;
+}
+.creator-submit:hover {
+  background-color: #f7fafa;
+  border-color: #d5d9d9;
 }

@@ -26,22 +26,30 @@ function Bakery() {
       <div id="form-container">
         <form onSubmit={handleSubmit} className="creator-form">
           <div className="form-item">
-            <label>Type:</label>
-            <input type="text" onChange={handleType} />
+            <label>Type: </label>
+            <input
+              type="text"
+              onChange={handleType}
+              className="creator-input"
+            />
           </div>
 
           <div className="form-item">
-            <label>Description:</label>
-            <input type="text" onChange={handleDesc} />
+            <label>Description: </label>
+            <input
+              type="text"
+              onChange={handleDesc}
+              className="creator-input"
+            />
           </div>
 
           <div className="form-item">
-            <label>Image URL:</label>
-            <input type="text" onChange={handleImg} />
+            <label>Image URL: </label>
+            <input type="text" onChange={handleImg} className="creator-input" />
           </div>
 
           <NavLink to="/shop">
-            <input type="submit" className="form-submit" />
+            <input type="submit" className="creator-submit" />
           </NavLink>
         </form>
       </div>
