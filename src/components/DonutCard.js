@@ -17,15 +17,15 @@ function DonutCard() {
       <h2>Donut.type</h2>
       <p>Donut.desc</p>
       <img className="card-img" src={donut} alt="donut-img" />
-      <div>
+      <div className="card-btn-container">
         <button onClick={showReviews} className="card-btn">
-          reviews
+          <p>reviews</p>
         </button>
         <button onClick={addReview} className="card-btn">
-          add review
+          <p>+ review</p>
         </button>
         <button onClick={deleteDonut} className="card-btn">
-          delete
+          <p>delete</p>
         </button>
       </div>
     </div>
