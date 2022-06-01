@@ -1,27 +1,61 @@
+/* ----------------------------- FONTS ----------------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=BIZ+UDMincho&family=Bungee&family=Monoton&display=swap");
+/* 3 fonts: 
+font-family: 'BIZ UDMincho', serif; <---Default / Regular Text
+font-family: 'Bungee', cursive; <--- Retro Neon
+font-family: 'Monoton', cursive; <--Big and Bold
+*/
+/* ----------------------------- APP.JS ----------------------------- */
+body {
+  background-color: rgba(106, 239, 203, 0.922);
+  background-image: url("./pics/sprinkles2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "BIZ UDMincho", serif;
+}
+.title {
+  font-family: "Bungee", cursive;
+  font-size: 3.5rem;
+  color: rgba(253, 0, 232, 0.769);
+  margin: auto;
+}
 /* ----------------------------- NAV BAR ----------------------------- */
 .nav {
   text-align: center;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
+  font-size: 1.5rem;
 }
-/* .nav-ul {
-  padding-bottom: 1rem;
-} */
+.nav-ul {
+  text-decoration: none;
+}
+/* ----------------------------- SHOP ----------------------------- */
+.shop {
+  text-align: center;
+}
+.shop h1 {
+  color: rgba(255, 255, 255, 0.89);
+  font-size: 3.5rem;
+}
 /* ----------------------------- DONUT CARDS ----------------------------- */
 .render-donuts {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
 }
 /* ----------------------------- DONUT CARD ----------------------------- */
 .donut-card {
-  background-color: rgba(197, 255, 240, 0.645);
+  background-color: rgba(191, 240, 168, 0.645);
   height: 16rem;
   width: 16rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 1rem;
+  border: rgba(240, 168, 234, 0.818) solid 4px;
 }
 .card-img {
   max-width: 40%;

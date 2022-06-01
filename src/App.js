@@ -7,7 +7,7 @@ function App() {
   return (
     <div id="app">
       <center>
-        <h1>Glaze of Glory</h1>
+        <h1 className="title">Glaze of Glory</h1>
       </center>
       <Router>
         <NavBar />
