@@ -48,7 +48,7 @@ body {
 /* ----------------------------- DONUT CARD ----------------------------- */
 .donut-card {
   background-color: rgba(191, 240, 168, 0.645);
-  height: 18rem;
+  height: 22rem;
   width: 18rem;
   display: flex;
   flex-direction: column;

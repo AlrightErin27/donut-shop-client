@@ -1,7 +1,7 @@
 import React from "react";
 import donut from "../pics/donut.png";
 
-function DonutCard() {
+function DonutCard({ donut }) {
   function showReviews() {
     console.log("Shows reviews.");
   }
@@ -14,9 +14,9 @@ function DonutCard() {
 
   return (
     <div className="donut-card">
-      <h2>Donut.type</h2>
-      <p>Donut.desc</p>
-      <img className="card-img" src={donut} alt="donut-img" />
+      <h2>{donut.name}</h2>
+      <p>{donut.description}</p>
+      <img className="card-img" src={donut.image_url} alt="donut-img" />
       <div className="card-btn-container">
         <button onClick={showReviews} className="card-btn">
           <p>reviews</p>

@@ -1,10 +1,10 @@
 import React from "react";
 import DonutCard from "./DonutCard";
 
-function DonutCards() {
-  const tempDonutsArr = ["", "", "", "", "", "", "", "", "", ""];
-  const renderDonuts = tempDonutsArr.map((donut) => {
-    return <DonutCard />;
+function DonutCards({ donuts }) {
+  // const tempDonutsArr = ["", "", "", "", "", "", "", "", "", ""];
+  const renderDonuts = donuts.map((donut, key) => {
+    return <DonutCard donut={donut} key={key} />;
   });
 
   return <div className="render-donuts">{renderDonuts}</div>;
