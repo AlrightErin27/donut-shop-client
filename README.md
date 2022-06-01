@@ -7,7 +7,7 @@ the other is the back end server side (uses Ruby, Sinatra, Sqlite DB, Sinatra & 
 The goal of teh project will let a user go to a donut store. They can view available donuts, and review them.
 The user can also create their own donut.
 
-CRUD- Create a donut, Create a review. Read (display) reviews & donuts. Update your donut. Delete any donut.
+CRUD- Create a donut, create a review. Read (display) reviews & donuts. Update your donut. Delete any donut.
 
 ## User Story
 
