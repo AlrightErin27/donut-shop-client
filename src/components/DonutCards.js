@@ -1,7 +1,13 @@
 import React from "react";
+import DonutCard from "./DonutCard";
 
 function DonutCards() {
-  return <div>DonutCards</div>;
+  const tempDonutsArr = ["", "", "", "", "", "", "", "", "", ""];
+  const renderDonuts = tempDonutsArr.map((donut) => {
+    return <DonutCard />;
+  });
+
+  return <div className="render-donuts">{renderDonuts}</div>;
 }
 
 export default DonutCards;

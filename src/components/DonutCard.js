@@ -16,7 +16,7 @@ function DonutCard() {
     <div className="donut-card">
       <h2>Donut.type</h2>
       <p>Donut.desc</p>
-      <img className="card-img" src={donut} />
+      <img className="card-img" src={donut} alt="donut-img" />
       <div>
         <button onClick={showReviews} className="card-btn">
           reviews

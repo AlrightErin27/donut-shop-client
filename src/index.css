@@ -1,4 +1,18 @@
+/* ----------------------------- NAV BAR ----------------------------- */
+.nav {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+/* .nav-ul {
+  padding-bottom: 1rem;
+} */
 /* ----------------------------- DONUT CARDS ----------------------------- */
+.render-donuts {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
 /* ----------------------------- DONUT CARD ----------------------------- */
 .donut-card {
   background-color: rgba(197, 255, 240, 0.645);

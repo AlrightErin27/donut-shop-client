@@ -1,11 +1,11 @@
 import React from "react";
-import DonutCard from "./DonutCard";
+import DonutCards from "./DonutCards";
 
 function Shop() {
   return (
     <div className="shop">
       <div className="donut-display"></div>
-      <DonutCard />
+      <DonutCards />
     </div>
   );
 }
