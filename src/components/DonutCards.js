@@ -4,9 +4,17 @@ import DonutCard from "./DonutCard";
 
 function DonutCards({ donuts, customers, setDonuts }) {
   const renderDonuts = donuts.map((donut, key) => {
-    return <DonutCard donut={donut} key={key} handleDelete={handleDelete} customers={customers} />;
+    return (
+      <DonutCard
+        donut={donut}
+        key={key}
+        handleDelete={handleDelete}
+        customers={customers}
+      />
+    );
   });
 
+  // ------------------------ FETCH AREA ------------------------ //
   function handleDelete(donut) {
     console.log(donut);
     fetch(`http://localhost:9292/donuts/${donut.id}`, {
@@ -19,7 +27,7 @@ function DonutCards({ donuts, customers, setDonuts }) {
       .catch((err) => console.log("🔥", err))
       .then(setDonuts(donuts.filter((item) => item.name !== donut.name)));
   }
-  return <div className="render-donuts">{renderDonuts}</div>;
+  return <div className="render-donuts">{renderDonuts.reverse()}</div>;
 }
 
 export default DonutCards;
