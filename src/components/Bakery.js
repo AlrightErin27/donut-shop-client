@@ -38,7 +38,7 @@ function Bakery() {
         {imageURL === "" ? (
           <img src={LoadingDonut} alt="loading-gif" />
         ) : (
-          <img src={imageURL} alt="current image" />
+          <img src={imageURL} alt="current image" className="created-img" />
         )}
       </div>
 

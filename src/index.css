@@ -134,6 +134,20 @@ body {
   font-size: 1.5rem;
   display: flex;
 }
+.created-img {
+  animation-name: blink;
+  animation-duration: 800ms;
+  animation-iteration-count: 3;
+  font-size: 1.5rem;
+}
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 .form-item {
   margin: 1rem;
   display: flex;
