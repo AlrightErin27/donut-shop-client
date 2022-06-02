@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import LoadingDonut from "../pics/loading.gif";
 
 function Bakery() {
@@ -23,8 +22,8 @@ function Bakery() {
         <img src={LoadingDonut} alt="loading-gif" />
       </div>
 
-      <div id="form-container">
-        <form onSubmit={handleSubmit} className="creator-form">
+      <form onSubmit={handleSubmit}>
+        <div id="form-container">
           <div className="form-item">
             <label>Type: </label>
             <input
@@ -48,11 +47,11 @@ function Bakery() {
             <input type="text" onChange={handleImg} className="creator-input" />
           </div>
 
-          <NavLink to="/shop">
+          <div className="form-item">
             <input type="submit" className="creator-submit" />
-          </NavLink>
-        </form>
-      </div>
+          </div>
+        </div>
+      </form>
     </div>
   );
 }

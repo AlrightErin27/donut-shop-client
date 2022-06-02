@@ -16,8 +16,7 @@ function Shop() {
       .then(setDonuts)
       .catch((err) => console.log("💀", err));
   }, []);
-  console.log(donuts);
-  // ------------ FETCH AREA  ------------  //
+
   return (
     <div className="shop">
       <h1>Shop</h1>

@@ -48,9 +48,10 @@ body {
 /* ----------------------------- DONUT CARD ----------------------------- */
 .donut-card {
   background-color: rgba(191, 240, 168, 0.645);
-  height: 22rem;
+  height: 20rem;
   width: 18rem;
   display: flex;
+  padding: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -105,8 +106,6 @@ body {
   outline: white 2px solid;
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.282);
-}
-.creator-donut {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,14 +116,11 @@ body {
 }
 #form-container {
   font-size: 1.5rem;
-}
-.creator-form {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .form-item {
-  margin: 2rem;
+  margin: 1rem;
+  display: flex;
 }
 .creator-input {
   font-size: 1.5rem;
@@ -143,8 +139,9 @@ body {
   display: flex;
   align-items: center;
   font-family: "BIZ UDMincho", serif;
+  text-decoration: none;
 }
 .creator-submit:hover {
-  background-color: #f7fafa;
+  background-color: #b0ffd4d3;
   border-color: #d5d9d9;
 }
