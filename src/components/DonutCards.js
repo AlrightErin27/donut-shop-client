@@ -4,15 +4,9 @@ import DonutCard from "./DonutCard";
 
 function DonutCards({ donuts }) {
   const renderDonuts = donuts.map((donut, key) => {
-    return (
-      <DonutCard
-        donut={donut}
-        key={key}
-        donuts={donuts}
-        handleDelete={handleDelete}
-      />
-    );
+    return <DonutCard donut={donut} key={key} handleDelete={handleDelete} />;
   });
+
   function handleDelete(donut) {
     fetch(`http://localhost:9292/donuts/${donut.name}`, {
       method: "DELETE",

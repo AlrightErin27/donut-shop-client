@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 function DonutCard({ donut, handleDelete }) {
   const history = useHistory();
+  const [reviews, setReviews] = useHistory([]);
 
-  function showReviews() {
-    console.log("Shows reviews.");
-  }
+  // ------------ FETCH AREA  ------------  /
+  // useEffect(() => {
+  //   fetch("http://localhost:9292/reviews", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((r) => r.json())
+  //     .then(setReviews)
+  //     .catch((err) => console.log("🔥", err));
+  // }, []);
+  // ------------ FETCH AREA  ------------  //
+
+  function showReviews() {}
   function addReview() {
     console.log("Add a review.");
   }
@@ -20,8 +33,8 @@ function DonutCard({ donut, handleDelete }) {
   return (
     <div className="donut-card">
       <h2>{donut.name}</h2>
-      <p>{donut.description}</p>
       <img className="card-img" src={donut.image_url} alt="donut-img" />
+      <p>{donut.description}</p>
       <div className="card-btn-container">
         <button onClick={showReviews} className="card-btn">
           <p>reviews</p>

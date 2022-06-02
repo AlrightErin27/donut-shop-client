@@ -4,10 +4,6 @@ import DonutCards from "./DonutCards";
 function Shop() {
   const [donuts, setDonuts] = useState([]);
 
-  // function handleDeleteDonut(donut) {
-  //   console.log(donut.name, "DELETED");
-  // }
-
   // ------------ FETCH AREA  ------------  //
   useEffect(() => {
     fetch("http://localhost:9292/donuts", {
@@ -21,7 +17,6 @@ function Shop() {
       .catch((err) => console.log("💀", err));
   }, []);
 
-  // ------------ FETCH AREA  ------------  //
   return (
     <div className="shop">
       <h1>Shop</h1>
