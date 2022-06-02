@@ -16,7 +16,7 @@ function Shop() {
     })
       .then((r) => r.json())
       .then(setDonuts)
-      .catch((err) => console.log("💀", err));
+      .catch((err) => console.log("💀 GET DONUT", err));
   }, []);
   // ------------ FETCH AREA  ------------  //
   useEffect(() => {
@@ -28,17 +28,13 @@ function Shop() {
     })
       .then((r) => r.json())
       .then(setCustomers)
-      .catch((err) => console.log("💀", err));
+      .catch((err) => console.log("💀 GET CUSTOMER", err));
   }, []);
-
+  console.log(customers);
   return (
     <div className="shop">
       <h1>Shop</h1>
-      <NavLink className="nav-link" exact to="/bakery">
-        <div className="add-donut">
-          <button className="creator-submit">Add a Donut</button>
-        </div>
-      </NavLink>
+      <NavLink className="nav-link" exact to="/bakery" />
       <div className="donut-display"></div>
       <DonutCards donuts={donuts} customers={customers} setDonuts={setDonuts} />
     </div>

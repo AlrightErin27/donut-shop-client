@@ -35,7 +35,7 @@ function DonutCard({ donut, customers, handleDelete }) {
     setDonutsReviews(reviewsArr);
     setPopupReviews(!popupReviews);
   }
-  console.log(donutsReviews);
+  // console.log(donutsReviews);
 
   function addReview() {
     console.log("add review");
@@ -51,11 +51,14 @@ function DonutCard({ donut, customers, handleDelete }) {
       <h2>{donut.name}</h2>
       <img className="card-img" src={donut.image_url} alt="donut-img" />
       <p>{donut.description}</p>
+      {/* THIS IS A DOUBLE DYNAMIC TERNARY STATEMENT. SHOW REVIEWS IF CLICKED. IF NO REVIEWS TO SHOW, SAY NO REVIEWS. */}
       {popupReviews === true ? (
         <>
-          {donutsReviews.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
+          {!donutsReviews.length ? (
+            <p>(no reviews)</p>
+          ) : (
+            donutsReviews.map((item, idx) => <li key={idx}>{item}</li>)
+          )}
         </>
       ) : null}
 
@@ -63,9 +66,9 @@ function DonutCard({ donut, customers, handleDelete }) {
         <button onClick={showReviews} className="card-btn">
           <p>reviews</p>
         </button>
-        <button onClick={addReview} className="card-btn">
+        {/* <button onClick={addReview} className="card-btn">
           <p>+ review</p>
-        </button>
+        </button> */}
         <button onClick={deleteDonut} className="card-btn">
           <p>delete</p>
         </button>
