@@ -2,7 +2,7 @@ import React from "react";
 
 import DonutCard from "./DonutCard";
 
-function DonutCards({ donuts, customers, setDonuts }) {
+function DonutCards({ donuts, customers, setDonuts, handleYourNuts }) {
   const renderDonuts = donuts.map((donut, key) => {
     return (
       <DonutCard
@@ -10,6 +10,7 @@ function DonutCards({ donuts, customers, setDonuts }) {
         key={key}
         handleDelete={handleDelete}
         customers={customers}
+        handleYourNuts={handleYourNuts}
       />
     );
   });
@@ -24,8 +25,8 @@ function DonutCards({ donuts, customers, setDonuts }) {
       },
     })
       .then((r) => r.json())
-      .catch((err) => console.log("🔥", err))
-      .then(setDonuts(donuts.filter((item) => item.name !== donut.name)));
+      // .then(setDonuts())
+      .catch((err) => console.log("🔥", err));
   }
   return <div className="render-donuts">{renderDonuts.reverse()}</div>;
 }

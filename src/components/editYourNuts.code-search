@@ -1,0 +1,41 @@
+# Query: editYourNuts
+# ContextLines: 1
+
+
+11 results - 4 files
+
+src/components/DonutCard.js:
+   4  
+   5: function DonutCard({ donut, customers, handleDelete, editYourNuts }) {
+   6    const history = useHistory();
+
+  65        ) : null}
+  66:       <EditDonut donut={donut} editYourNuts={editYourNuts} />
+  67        ``
+
+src/components/DonutCards.js:
+   4  
+   5: function DonutCards({ donuts, customers, setDonuts, editYourNuts }) {
+   6    const renderDonuts = donuts.map((donut, key) => {
+
+  12          customers={customers}
+  13:         editYourNuts={editYourNuts}
+  14        />
+
+src/components/EditDonut.js:
+   2  
+   3: function EditDonut({ donut, editYourNuts }) {
+   4    const [name, setName] = useState("");
+
+  21      };
+  22:     editYourNuts(data);
+  23    }
+
+src/components/Shop.js:
+   8  
+   9:   function editYourNuts(data) {
+  10      console.log(data);
+
+  63          setDonuts={setDonuts}
+  64:         editYourNuts={editYourNuts}
+  65        />

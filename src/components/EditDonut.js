@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
-function EditDonut() {
-  function handleSubmit() {}
-  function setType() {}
-  function setDescription() {}
+function EditDonut({ donut, handleYourNuts }) {
+  const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
+
+  function setType(e) {
+    console.log(e.target.value, "TYPE");
+    setName(e.target.value);
+  }
+  function setDescription(e) {
+    console.log(e.target.value, "DESC");
+    setDesc(e.target.value);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    const data = {
+      id: donut.id,
+      name: name,
+      description: desc,
+    };
+    handleYourNuts(data);
+  }
 
   return (
     <div className="edit-donut">
@@ -14,15 +31,12 @@ function EditDonut() {
             <label>
               Type: <br />
             </label>
-            <input type="text" onChange={(e) => setType(e.target.value)} />
+            <input type="text" onChange={setType} />
           </div>
 
           <div className="edit-form-item">
             <label>Description: </label>
-            <input
-              type="text"
-              onChange={(e) => setDescription(e.target.value)}
-            />
+            <input type="text" onChange={setDescription} />
           </div>
 
           <div>

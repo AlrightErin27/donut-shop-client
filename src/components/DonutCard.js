@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import EditDonut from "./EditDonut";
 
-function DonutCard({ donut, customers, handleDelete }) {
+function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
   const history = useHistory();
   const reviewsArr = [];
   const [donutsReviews, setDonutsReviews] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [popupReviews, setPopupReviews] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
+  // const [isEditing, setIsEditing] = useState(false);
 
   // ------------ FETCH AREA  ------------  /
   useEffect(() => {
@@ -22,26 +22,6 @@ function DonutCard({ donut, customers, handleDelete }) {
       .then(setReviews)
       .catch((err) => console.log("🔥", err));
   }, []);
-
-  // ------------ FETCH AREA  ------------  /
-
-  function handleEdit(donut) {
-    console.log("that tickles");
-    setIsEditing(!isEditing);
-
-    // fetch(`http://localhost:9292/donuts/${donut.id}`, {
-    //   method: "PATCH",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     description: description,
-    //   }),
-    // })
-    //   .then((r) => r.json())
-    //   .then(setDonuts)
-    //   .catch((err) => console.log("🤬 PATCH DONUT", err));
-  }
 
   function showReviews() {
     let customerArr = [];
@@ -58,10 +38,10 @@ function DonutCard({ donut, customers, handleDelete }) {
   }
   // console.log(donutsReviews);
 
-  function editDonut() {
-    console.log("edit donut:", donut.name);
-    handleEdit(donut);
-  }
+  // function editDonut() {
+  //   console.log("edit donut:", donut.name);
+  //   handleEdit(donut);
+  // }
 
   function deleteDonut() {
     console.log("You are deleting:", donut.name);
@@ -83,15 +63,15 @@ function DonutCard({ donut, customers, handleDelete }) {
           )}
         </>
       ) : null}
-      <EditDonut />
-
+      <EditDonut donut={donut} handleYourNuts={handleYourNuts} />
+      ``
       <div className="card-btn-container">
         <button onClick={showReviews} className="card-btn">
           <p>reviews</p>
         </button>
-        <button onClick={editDonut} className="card-btn">
+        {/* <button onClick={editDonut} className="card-btn">
           <p>edit</p>
-        </button>
+        </button> */}
         <button onClick={deleteDonut} className="card-btn">
           <p>delete</p>
         </button>
