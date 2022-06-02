@@ -40,7 +40,7 @@ function Shop() {
         </div>
       </NavLink>
       <div className="donut-display"></div>
-      <DonutCards donuts={donuts} customers={customers} />
+      <DonutCards donuts={donuts} customers={customers} setDonuts={setDonuts} />
     </div>
   );
 }
