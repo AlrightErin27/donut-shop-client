@@ -175,3 +175,48 @@ body {
   background-color: #b0ffd4d3;
   border-color: #d5d9d9;
 }
+
+/* ---------------------------- EDIT DONUT ---------------------------- */
+.edit-donut {
+  background-color: rgba(93, 189, 210, 0.929); /* Fallback color */
+  position: absolute; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  height: 40%;
+  width: 30%;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.edit-donut button {
+  margin-left: 12rem;
+  margin-top: -2rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  font-family: "Bungee", cursive;
+  font-size: 2rem;
+}
+
+.edit-form-item {
+  /* outline: white 1px solid; */
+  padding: 1rem;
+  /* width: 10%; */
+}
+.edit-form-submit {
+  font-size: 1.1rem;
+  display: inline-block;
+  outline: 0;
+  margin-top: 2rem;
+  cursor: pointer;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.602);
+  border: 1px solid #d5d9d9;
+  height: 31px;
+  padding: 0 11px;
+  font-family: "BIZ UDMincho", serif;
+  text-decoration: none;
+}

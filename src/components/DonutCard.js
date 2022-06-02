@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import EditDonut from "./EditDonut";
 
 function DonutCard({ donut, customers, handleDelete }) {
   const history = useHistory();
@@ -7,6 +8,7 @@ function DonutCard({ donut, customers, handleDelete }) {
   const [donutsReviews, setDonutsReviews] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [popupReviews, setPopupReviews] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   // ------------ FETCH AREA  ------------  /
   useEffect(() => {
@@ -20,7 +22,26 @@ function DonutCard({ donut, customers, handleDelete }) {
       .then(setReviews)
       .catch((err) => console.log("🔥", err));
   }, []);
+
   // ------------ FETCH AREA  ------------  /
+
+  function handleEdit(donut) {
+    console.log("that tickles");
+    setIsEditing(!isEditing);
+
+    // fetch(`http://localhost:9292/donuts/${donut.id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     description: description,
+    //   }),
+    // })
+    //   .then((r) => r.json())
+    //   .then(setDonuts)
+    //   .catch((err) => console.log("🤬 PATCH DONUT", err));
+  }
 
   function showReviews() {
     let customerArr = [];
@@ -37,8 +58,9 @@ function DonutCard({ donut, customers, handleDelete }) {
   }
   // console.log(donutsReviews);
 
-  function addReview() {
-    console.log("add review");
+  function editDonut() {
+    console.log("edit donut:", donut.name);
+    handleEdit(donut);
   }
 
   function deleteDonut() {
@@ -61,14 +83,15 @@ function DonutCard({ donut, customers, handleDelete }) {
           )}
         </>
       ) : null}
+      <EditDonut />
 
       <div className="card-btn-container">
         <button onClick={showReviews} className="card-btn">
           <p>reviews</p>
         </button>
-        {/* <button onClick={addReview} className="card-btn">
-          <p>+ review</p>
-        </button> */}
+        <button onClick={editDonut} className="card-btn">
+          <p>edit</p>
+        </button>
         <button onClick={deleteDonut} className="card-btn">
           <p>delete</p>
         </button>
