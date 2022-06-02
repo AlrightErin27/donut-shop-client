@@ -17,8 +17,6 @@ function Bakery() {
       image_url: imageURL,
     };
 
-    console.log("New donut POST data: ", data);
-
     // ---------------------- FETCH AREA ---------------------- //
     fetch("http://localhost:9292/new_donut", {
       method: "POST",
@@ -35,6 +33,8 @@ function Bakery() {
       .catch((error) => {
         console.error("Error adding new donut:", error);
       });
+
+    // ---------------------- FETCH AREA ---------------------- //
   }
   return (
     <div className="bakery">

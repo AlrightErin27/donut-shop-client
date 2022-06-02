@@ -30,7 +30,8 @@ function Shop() {
       .then(setCustomers)
       .catch((err) => console.log("💀 GET CUSTOMER", err));
   }, []);
-  console.log(customers);
+  // ------------ FETCH AREA  ------------  //
+
   return (
     <div className="shop">
       <h1>Shop</h1>
