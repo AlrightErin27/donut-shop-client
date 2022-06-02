@@ -21,7 +21,7 @@ function Shop() {
     <div className="shop">
       <h1>Shop</h1>
       <div className="donut-display"></div>
-      <DonutCards donuts={donuts} />
+      <DonutCards donuts={donuts} setDonuts={setDonuts} />
     </div>
   );
 }

@@ -28,8 +28,6 @@ function DonutCard({ donut, handleDelete }) {
   function deleteDonut() {
     console.log("You are deleting:", donut.name);
     handleDelete(donut);
-    history.push("/shop");
-    document.location.reload();
   }
 
   return (
