@@ -38,7 +38,7 @@ function DonutCard({ donut, customers, handleDelete }) {
   console.log(donutsReviews);
 
   function addReview() {
-    history.push("/bakery");
+    console.log("add review");
   }
 
   function deleteDonut() {

@@ -38,6 +38,21 @@ body {
   color: rgba(255, 255, 255, 0.89);
   font-size: 3.5rem;
 }
+
+.add-donut {
+  justify-content: center;
+  display: flex;
+  padding: inherit;
+}
+
+.add-donut:a {
+  text-decoration: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: inherit;
+}
 /* ----------------------------- DONUT CARDS ----------------------------- */
 .render-donuts {
   display: flex;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DonutCards from "./DonutCards";
+import { NavLink } from "react-router-dom";
 
 function Shop() {
   const [donuts, setDonuts] = useState([]);
@@ -33,6 +34,11 @@ function Shop() {
   return (
     <div className="shop">
       <h1>Shop</h1>
+      <NavLink className="nav-link" exact to="/bakery">
+        <div className="add-donut">
+          <button className="creator-submit">Add a Donut</button>
+        </div>
+      </NavLink>
       <div className="donut-display"></div>
       <DonutCards donuts={donuts} customers={customers} />
     </div>

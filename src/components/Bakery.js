@@ -1,19 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import LoadingDonut from "../pics/loading.gif";
 
 function Bakery() {
-  function handleType(e) {
-    console.log("TYPE: ", e.target.value);
-  }
-  function handleDesc(e) {
-    console.log("DESC: ", e.target.value);
-  }
-  function handleImg(e) {
-    console.log("IMG URL: ", e.target.value);
-  }
+  const [type, setType] = useState("");
+  const [description, setDescription] = useState("");
+  const [imageURL, setImageURL] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("TEXT SUBMITTED: ", e.target.value);
+    const data = {
+      name: type,
+      description: description,
+      image_url: imageURL,
+    };
+
+    console.log("New donut POST data: ", data);
+
+    fetch("http://localhost:9292/new_donut", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        console.log("Successfully added donut:", data);
+      })
+      .catch((error) => {
+        console.error("Error adding new donut:", error);
+      });
   }
   return (
     <div className="bakery">
@@ -26,25 +42,17 @@ function Bakery() {
         <div id="form-container">
           <div className="form-item">
             <label>Type: </label>
-            <input
-              type="text"
-              onChange={handleType}
-              className="creator-input"
-            />
+            <input type="text" onChange={(e) => setType(e.target.value)} className="creator-input" />
           </div>
 
           <div className="form-item">
             <label>Description: </label>
-            <input
-              type="text"
-              onChange={handleDesc}
-              className="creator-input"
-            />
+            <input type="text" onChange={(e) => setDescription(e.target.value)} className="creator-input" />
           </div>
 
           <div className="form-item">
             <label>Image URL: </label>
-            <input type="text" onChange={handleImg} className="creator-input" />
+            <input type="text" onChange={(e) => setImageURL(e.target.value)} className="creator-input" />
           </div>
 
           <div className="form-item">
