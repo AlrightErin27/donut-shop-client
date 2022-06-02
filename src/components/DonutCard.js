@@ -38,14 +38,12 @@ function DonutCard({ donut, customers, handleDelete }) {
   console.log(donutsReviews);
 
   function addReview() {
-    console.log("Add a review.");
+    history.push("/bakery");
   }
 
   function deleteDonut() {
     console.log("You are deleting:", donut.name);
     handleDelete(donut);
-    history.push("/shop");
-    document.location.reload();
   }
 
   return (
