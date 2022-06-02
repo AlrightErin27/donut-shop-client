@@ -35,24 +35,40 @@ function Bakery() {
     <div className="bakery">
       <h1>Bakery</h1>
       <div className="creator-donut">
-        <img src={LoadingDonut} alt="loading-gif" />
+        {imageURL === "" ? (
+          <img src={LoadingDonut} alt="loading-gif" />
+        ) : (
+          <img src={imageURL} alt="current image" />
+        )}
       </div>
 
       <form onSubmit={handleSubmit}>
         <div id="form-container">
           <div className="form-item">
             <label>Type: </label>
-            <input type="text" onChange={(e) => setType(e.target.value)} className="creator-input" />
+            <input
+              type="text"
+              onChange={(e) => setType(e.target.value)}
+              className="creator-input"
+            />
           </div>
 
           <div className="form-item">
             <label>Description: </label>
-            <input type="text" onChange={(e) => setDescription(e.target.value)} className="creator-input" />
+            <input
+              type="text"
+              onChange={(e) => setDescription(e.target.value)}
+              className="creator-input"
+            />
           </div>
 
           <div className="form-item">
             <label>Image URL: </label>
-            <input type="text" onChange={(e) => setImageURL(e.target.value)} className="creator-input" />
+            <input
+              type="text"
+              onChange={(e) => setImageURL(e.target.value)}
+              className="creator-input"
+            />
           </div>
 
           <div className="form-item">
