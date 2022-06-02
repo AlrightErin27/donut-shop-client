@@ -15,8 +15,8 @@ function DonutCards({ donuts, setDonuts }) {
       },
     })
       .then((r) => r.json())
-      .then(setDonuts(donuts.filter((item) => item.name !== donut.name)))
-      .catch((err) => console.log("🔥", err));
+      .catch((err) => console.log("🔥", err))
+      .then(setDonuts(donuts.filter((item) => item.name !== donut.name)));
   }
   return <div className="render-donuts">{renderDonuts}</div>;
 }

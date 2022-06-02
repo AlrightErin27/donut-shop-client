@@ -22,7 +22,7 @@ function DonutCard({ donut, handleDelete }) {
     console.log("See reviews.");
   }
   function addReview() {
-    console.log("Add a review.");
+    history.push("/bakery");
   }
 
   function deleteDonut() {
