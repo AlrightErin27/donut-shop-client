@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import LoadingDonut from "../pics/loading.gif";
 
 function Bakery() {
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
   const [imageURL, setImageURL] = useState("");
+
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -16,6 +19,7 @@ function Bakery() {
 
     console.log("New donut POST data: ", data);
 
+    // ---------------------- FETCH AREA ---------------------- //
     fetch("http://localhost:9292/new_donut", {
       method: "POST",
       headers: {
@@ -27,6 +31,7 @@ function Bakery() {
       .then((data) => {
         console.log("Successfully added donut:", data);
       })
+      .then(history.push("/shop"))
       .catch((error) => {
         console.error("Error adding new donut:", error);
       });
