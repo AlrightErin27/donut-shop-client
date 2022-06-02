@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 
 function DonutCard({ donut, handleDelete }) {
   const history = useHistory();
-  const [reviews, setReviews] = useHistory([]);
 
   // ------------ FETCH AREA  ------------  /
   // useEffect(() => {
@@ -19,10 +18,13 @@ function DonutCard({ donut, handleDelete }) {
   // }, []);
   // ------------ FETCH AREA  ------------  //
 
-  function showReviews() {}
+  function showReviews() {
+    console.log("See reviews.");
+  }
   function addReview() {
     console.log("Add a review.");
   }
+
   function deleteDonut() {
     console.log("You are deleting:", donut.name);
     handleDelete(donut);

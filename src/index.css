@@ -17,7 +17,7 @@ body {
 .title {
   font-family: "Bungee", cursive;
   font-size: 3.5rem;
-  color: rgba(253, 0, 232, 0.769);
+  color: rgba(253, 0, 232, 0.556);
   margin: auto;
 }
 /* ----------------------------- NAV BAR ----------------------------- */
@@ -32,6 +32,7 @@ body {
 /* ----------------------------- SHOP ----------------------------- */
 .shop {
   text-align: center;
+  padding-bottom: 2rem;
 }
 .shop h1 {
   color: rgba(255, 255, 255, 0.89);
