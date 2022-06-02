@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-function EditDonut({ donut, handleYourNuts }) {
+function EditDonut({ donut, handleYourNuts, closeModal }) {
+  const history = useHistory();
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
 
@@ -24,19 +26,24 @@ function EditDonut({ donut, handleYourNuts }) {
 
   return (
     <div className="edit-donut">
-      <button>X</button>
+      <button onClick={closeModal}>X</button>
       <form onSubmit={handleSubmit}>
         <div>
           <div className="edit-form-item">
             <label>
               Type: <br />
             </label>
-            <input type="text" onChange={setType} />
+
+            <input type="text" onChange={setType} placeholder={donut.name} />
           </div>
 
           <div className="edit-form-item">
             <label>Description: </label>
-            <input type="text" onChange={setDescription} />
+            <input
+              type="text"
+              onChange={setDescription}
+              placeholder={donut.description}
+            />
           </div>
 
           <div>

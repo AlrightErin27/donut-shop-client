@@ -3,13 +3,12 @@ import { useHistory } from "react-router-dom";
 import EditDonut from "./EditDonut";
 
 function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
-  const history = useHistory();
   const reviewsArr = [];
   const [donutsReviews, setDonutsReviews] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [popupReviews, setPopupReviews] = useState(false);
-  // const [isEditing, setIsEditing] = useState(false);
-
+  const [isEditing, setIsEditing] = useState(false);
+  const history = useHistory();
   // ------------ FETCH AREA  ------------  /
   useEffect(() => {
     fetch(`http://localhost:9292/reviews/donut/${donut.name}`, {
@@ -36,16 +35,14 @@ function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
     setDonutsReviews(reviewsArr);
     setPopupReviews(!popupReviews);
   }
-  // console.log(donutsReviews);
-
-  // function editDonut() {
-  //   console.log("edit donut:", donut.name);
-  //   handleEdit(donut);
-  // }
 
   function deleteDonut() {
     console.log("You are deleting:", donut.name);
     handleDelete(donut);
+  }
+  function closeModal() {
+    setIsEditing(false);
+    history.push("/shop");
   }
 
   return (
@@ -63,15 +60,27 @@ function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
           )}
         </>
       ) : null}
-      <EditDonut donut={donut} handleYourNuts={handleYourNuts} />
-      ``
+
+      {isEditing === true ? (
+        <EditDonut
+          donut={donut}
+          handleYourNuts={handleYourNuts}
+          closeModal={closeModal}
+        />
+      ) : null}
+
       <div className="card-btn-container">
         <button onClick={showReviews} className="card-btn">
           <p>reviews</p>
         </button>
-        {/* <button onClick={editDonut} className="card-btn">
+        <button
+          onClick={() => {
+            setIsEditing(!isEditing);
+          }}
+          className="card-btn"
+        >
           <p>edit</p>
-        </button> */}
+        </button>
         <button onClick={deleteDonut} className="card-btn">
           <p>delete</p>
         </button>
