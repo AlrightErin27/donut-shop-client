@@ -2,9 +2,16 @@ import React from "react";
 
 import DonutCard from "./DonutCard";
 
-function DonutCards({ donuts }) {
+function DonutCards({ donuts, customers }) {
   const renderDonuts = donuts.map((donut, key) => {
-    return <DonutCard donut={donut} key={key} handleDelete={handleDelete} />;
+    return (
+      <DonutCard
+        donut={donut}
+        key={key}
+        handleDelete={handleDelete}
+        customers={customers}
+      />
+    );
   });
 
   function handleDelete(donut) {
