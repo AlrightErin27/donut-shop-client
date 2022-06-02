@@ -2,9 +2,16 @@ import React from "react";
 
 import DonutCard from "./DonutCard";
 
-function DonutCards({ donuts, setDonuts }) {
+function DonutCards({ donuts, customers }) {
   const renderDonuts = donuts.map((donut, key) => {
-    return <DonutCard donut={donut} key={key} handleDelete={handleDelete} />;
+    return (
+      <DonutCard
+        donut={donut}
+        key={key}
+        handleDelete={handleDelete}
+        customers={customers}
+      />
+    );
   });
 
   function handleDelete(donut) {
@@ -15,8 +22,7 @@ function DonutCards({ donuts, setDonuts }) {
       },
     })
       .then((r) => r.json())
-      .catch((err) => console.log("🔥", err))
-      .then(setDonuts(donuts.filter((item) => item.name !== donut.name)));
+      .catch((err) => console.log("🔥", err));
   }
   return <div className="render-donuts">{renderDonuts}</div>;
 }
