@@ -30,15 +30,6 @@ function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
     // console.log(author);
     for (let i = 0; i < reviews.length; i++) {
       customers.forEach((customer) => {
-        // if (customer.id === reviews[i].customer_id) {
-        //   if (customer.name === "") {
-        //     customerArr.push(customer.name);
-        //   } else if (customer.name !== "") {
-        //     let tName = `${customer.name}:`;
-        //     customerArr.push(tName);
-        //   }
-        // }
-
         if (customer.id === reviews[i].customer_id) {
           customerArr.push(`${customer.name}:`);
         } else {

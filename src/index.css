@@ -171,7 +171,7 @@ body {
   margin: auto;
 }
 .creator-donut {
-  height: 27rem;
+  height: 33rem;
   width: 60%;
   outline: white 2px solid;
   border-radius: 1rem;
@@ -196,12 +196,13 @@ body {
   color: rgb(17, 107, 132);
 }
 .creator-donut img {
-  max-width: 60%;
-  max-height: 60%;
+  max-width: 80%;
+  max-height: 70%;
 }
 #form-container {
   font-size: 1.5rem;
   display: flex;
+  padding-bottom: 6rem;
 }
 .created-img {
   animation-name: blink;
