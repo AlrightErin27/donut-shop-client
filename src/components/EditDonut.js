@@ -7,11 +7,11 @@ function EditDonut({ donut, handleYourNuts, closeModal }) {
   const [desc, setDesc] = useState("");
 
   function setType(e) {
-    console.log(e.target.value, "TYPE");
+    // console.log(e.target.value, "TYPE");
     setName(e.target.value);
   }
   function setDescription(e) {
-    console.log(e.target.value, "DESC");
+    // console.log(e.target.value, "DESC");
     setDesc(e.target.value);
   }
   function handleSubmit(e) {
@@ -26,7 +26,6 @@ function EditDonut({ donut, handleYourNuts, closeModal }) {
 
   return (
     <div className="edit-donut">
-      <button onClick={closeModal}>X</button>
       <form onSubmit={handleSubmit}>
         <div>
           <div className="edit-form-item">
@@ -51,6 +50,7 @@ function EditDonut({ donut, handleYourNuts, closeModal }) {
           </div>
         </div>
       </form>
+      <button onClick={closeModal}>X</button>
     </div>
   );
 }

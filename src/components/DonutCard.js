@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import EditDonut from "./EditDonut";
+import AddReview from "./AddReview";
 
 function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
   const reviewsArr = [];
@@ -8,6 +9,7 @@ function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
   const [reviews, setReviews] = useState([]);
   const [popupReviews, setPopupReviews] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [isReviewing, setIsReviewing] = useState(false);
   const history = useHistory();
   // ------------ FETCH AREA  ------------  /
   useEffect(() => {
@@ -21,16 +23,24 @@ function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
       .then(setReviews)
       .catch((err) => console.log("🔥", err));
   }, []);
+  // ---------------------- FETCH AREA ---------------------- //
 
   function showReviews() {
     let customerArr = [];
+    // console.log(author);
     for (let i = 0; i < reviews.length; i++) {
       customers.forEach((customer) => {
         if (customer.id === reviews[i].customer_id) {
-          customerArr.push(customer.name);
+          if (customer.name === "") {
+            let tName = `${customer.name}`;
+            customerArr.push(tName);
+          } else {
+            let tName = `${customer.name}:`;
+            customerArr.push(tName);
+          }
         }
       });
-      reviewsArr.push([`${customerArr[i]}: ${reviews[i].review}`]);
+      reviewsArr.push([`${customerArr[i]} ${reviews[i].review}`]);
     }
     setDonutsReviews(reviewsArr);
     setPopupReviews(!popupReviews);
@@ -40,8 +50,22 @@ function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
     console.log("You are deleting:", donut.name);
     handleDelete(donut);
   }
+
+  function handleDeezNuts(data) {
+    fetch("http://localhost:9292/new_review", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((r) => r.json())
+      .then(document.location.reload());
+  }
   function closeModal() {
     setIsEditing(false);
+    setIsReviewing(false);
+
     history.push("/shop");
   }
 
@@ -52,13 +76,20 @@ function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
       <p>{donut.description}</p>
       {/* THIS IS A DOUBLE DYNAMIC TERNARY STATEMENT. SHOW REVIEWS IF CLICKED. IF NO REVIEWS TO SHOW, SAY NO REVIEWS. */}
       {popupReviews === true ? (
-        <>
+        <div className="review-modal">
           {!donutsReviews.length ? (
             <p>(no reviews)</p>
           ) : (
             donutsReviews.map((item, idx) => <li key={idx}>{item}</li>)
           )}
-        </>
+          <button
+            onClick={() => {
+              setPopupReviews(false);
+            }}
+          >
+            X
+          </button>
+        </div>
       ) : null}
 
       {isEditing === true ? (
@@ -69,10 +100,28 @@ function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
         />
       ) : null}
 
+      {isReviewing === true ? (
+        <AddReview
+          donut={donut}
+          closeModal={closeModal}
+          handleDeezNuts={handleDeezNuts}
+        />
+      ) : null}
+
       <div className="card-btn-container">
         <button onClick={showReviews} className="card-btn">
           <p>reviews</p>
         </button>
+
+        <button
+          onClick={() => {
+            setIsReviewing(!isReviewing);
+          }}
+          className="card-btn"
+        >
+          <p>+review</p>
+        </button>
+
         <button
           onClick={() => {
             setIsEditing(!isEditing);
