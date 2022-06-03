@@ -44,7 +44,7 @@ function Bakery() {
         <h2>{!description ? <div className="space">X</div> : description}</h2>
 
         {imageURL === "" ? (
-          <img src={LoadingDonut} alt="loading-gif" className="created-img" />
+          <img src={LoadingDonut} alt="loading-gif" />
         ) : (
           <img src={imageURL} alt="current image" className="created-img" />
         )}
