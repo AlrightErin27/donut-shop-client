@@ -24,10 +24,8 @@ function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
       .catch((err) => console.log("🔥", err));
   }, []);
   // ---------------------- FETCH AREA ---------------------- //
-
   function showReviews() {
     let customerArr = [];
-    // console.log(author);
     for (let i = 0; i < reviews.length; i++) {
       customers.forEach((customer) => {
         if (customer.id === reviews[i].customer_id) {

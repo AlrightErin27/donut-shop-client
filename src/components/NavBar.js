@@ -6,20 +6,18 @@ function NavBar() {
 
   function toBakery() {
     setInBakery(true);
-    console.log("TO THE BAKERY!");
   }
   function leaveBakery() {
     setInBakery(false);
-    console.log("TO THE SHOP!");
   }
 
   return (
     <nav className="nav">
       <NavLink className="nav-ul" to="/bakery" onClick={toBakery}>
-        {inBakery === false ? <>Bakery</> : ""}
+        {inBakery === false ? <p>bakery</p> : ""}
       </NavLink>
       <NavLink className="nav-ul" to="/shop" onClick={leaveBakery}>
-        {inBakery === true ? <>Shop</> : ""}
+        {inBakery === true ? <p>shop</p> : ""}
       </NavLink>
     </nav>
   );
