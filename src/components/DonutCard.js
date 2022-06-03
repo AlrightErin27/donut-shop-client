@@ -31,13 +31,9 @@ function DonutCard({ donut, customers, handleDelete, handleYourNuts }) {
     for (let i = 0; i < reviews.length; i++) {
       customers.forEach((customer) => {
         if (customer.id === reviews[i].customer_id) {
-          if (customer.name === "") {
-            let tName = `${customer.name}`;
-            customerArr.push(tName);
-          } else {
-            let tName = `${customer.name}:`;
-            customerArr.push(tName);
-          }
+          customerArr.push(`${customer.name}:`);
+        } else {
+          customerArr.push(``);
         }
       });
       reviewsArr.push([`${customerArr[i]} ${reviews[i].review}`]);
